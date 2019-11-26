@@ -3,9 +3,11 @@ __PIDFE__, __*P*__-element **I**nsertion **D**etector and **F**requency **E**sti
 
 Current version v1.0
 
-If you have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com)
+If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
 
 
 # Installation
     git clone https://github.com/szhang32/PIDFE.git
+    cd PIDFE
+    export 
     
