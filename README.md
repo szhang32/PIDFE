@@ -9,7 +9,7 @@ If you find any bugs or have difficulties using PIDFE, please feel free to conta
 # Installation
 The following codes install PIDFE in home directory. Users can install it anywhere they want.
 
-    cd
+    cd ~
     git clone https://github.com/szhang32/PIDFE.git
     cd PIDFE
     echo 'export PATH=$PATH:~/PIDFE/scripts'  >> ~/.bash_profile
