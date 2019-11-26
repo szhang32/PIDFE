@@ -18,3 +18,14 @@ PIDFE is designed to run on a high performance computering platform with Linux o
 - [samtools](http://www.htslib.org/doc/samtools-1.2.html)
 - [bedtools](https://bedtools.readthedocs.io/en/latest/)
 - [Bio]
+
+## Usage
+    sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>"
+    "Required arguments:"
+        <-g refGenome> defines the reference genome where P-elements reside.
+        <-p refP> defines the consensus P-element sequence.
+ 
+    Optional arguments:"
+        [-i inDir] is the directory containing paired-end read, i.e., *_R1.fastq and *_R2.fastq. Asterisk(*) can represent zero or any number of characters. Default: current working directoary"  
+        [-o output] is the output file name. Default: p_insertions.txt"
+    
