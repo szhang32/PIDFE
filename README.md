@@ -8,7 +8,6 @@ If you find any bugs or have difficulties using PIDFE, please feel free to conta
 
 ## Installation
 The following codes install PIDFE in home directory. Users can install it anywhere they want.
-
     cd ~
     git clone https://github.com/szhang32/PIDFE.git
     echo 'export PATH=$PATH:~/PIDFE/scripts'  >> ~/.bash_profile
@@ -20,7 +19,6 @@ PIDFE is designed to run on a high performance computering platform with Linux o
 - [Bio]
 
 ## Usage
-
     sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>"
     "Required arguments:
         <-g refGenome> defines the reference genome where P-elements reside.
