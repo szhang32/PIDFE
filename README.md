@@ -13,3 +13,8 @@ The following codes install PIDFE in home directory. Users can install it anywhe
     git clone https://github.com/szhang32/PIDFE.git
     echo 'export PATH=$PATH:~/PIDFE/scripts'  >> ~/.bash_profile
     
+# Sofeware dependencies
+PIDFE is designed to run on a high performance computering platform with Linux operating system.
+- [samtools](http://www.htslib.org/doc/samtools-1.2.html)
+- [bedtools](https://bedtools.readthedocs.io/en/latest/)
+- [Bio]
