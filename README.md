@@ -32,5 +32,5 @@ PIDFE is designed to run on a high performance computering platform with Linux o
         [-i inDir] is the directory containing paired-end read, i.e., *_R1.fastq and *_R2.fastq. Asterisk(*) can represent zero or any number of characters. Default: current working directoary  
         [-o output] is the output file name. Default: p_insertions.txt
 
-## Contact
+## Contacts
 If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
