@@ -22,7 +22,7 @@ PIDFE is designed to run on a high performance computering platform with Linux o
 - [BioPerl](https://bioperl.org)
 
 ## Usage
-    sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>"
+    sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>
     
     Required arguments:
         <-g refGenome> defines the reference genome where *P*-elements reside.
