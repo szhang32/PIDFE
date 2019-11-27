@@ -1,9 +1,10 @@
 # PIDFE
 __PIDFE__, __*P*__-element **I**nsertion **D**etector and **F**requency **E**stimator, is a pipeline to detect *P*-element insertions and estimate their insertion frequencies from paired-end reads.
 
+Copyright (c) 2019 Kelleher Lab at the University of Houston
+
 Current version v1.0
 
-If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
 
 
 ## Installation
@@ -30,4 +31,6 @@ PIDFE is designed to run on a high performance computering platform with Linux o
     Optional arguments:
         [-i inDir] is the directory containing paired-end read, i.e., *_R1.fastq and *_R2.fastq. Asterisk(*) can represent zero or any number of characters. Default: current working directoary  
         [-o output] is the output file name. Default: p_insertions.txt
-    
+
+## Contact
+If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
