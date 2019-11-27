@@ -8,7 +8,7 @@ Current version v1.0
 
 
 ## Installation
-The following codes install PIDFE in home directory. Users can install it anywhere they want.
+The following codes install PIDFE in home directory. Users can install it anywhere they want by changing '~' to their desired directory.
 
     cd ~
     git clone https://github.com/szhang32/PIDFE.git
