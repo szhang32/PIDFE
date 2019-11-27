@@ -15,9 +15,10 @@ The following codes install PIDFE in home directory. Users can install it anywhe
     
 ## Software dependancies
 PIDFE is designed to run on a high performance computering platform with Linux operating system.
+- [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
 - [samtools](http://www.htslib.org/doc/samtools-1.2.html)
 - [bedtools](https://bedtools.readthedocs.io/en/latest/)
-- [Bio]
+- [BioPerl](https://bioperl.org)
 
 ## Usage
     sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>"
