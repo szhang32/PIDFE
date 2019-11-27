@@ -26,7 +26,7 @@ PIDFE is designed to run on a high performance computering platform with Linux o
     sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>
     
     Required arguments:
-        <-g refGenome> defines the reference genome where *P*-elements reside.
+        <-g refGenome> defines the reference genome where _P_-elements reside.
         <-p refP> defines the consensus *P*-element sequence.
  
     Optional arguments:
