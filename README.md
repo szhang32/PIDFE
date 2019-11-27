@@ -26,8 +26,8 @@ PIDFE is designed to run on a high performance computering platform with Linux o
     sh PIDFE.sh [-i inDir] [-o output] <-g refGenome> <-p refP>
     
     Required arguments:
-        <-g refGenome> defines the reference genome where _P_-elements reside.
-        <-p refP> defines the consensus *P*-element sequence.
+        <-g refGenome> defines the reference genome where P-elements reside.
+        <-p refP> defines the consensus P-element sequence.
  
     Optional arguments:
         [-i inDir] is the directory containing paired-end read, i.e., *_R1.fastq and *_R2.fastq. Asterisk(*) can represent zero or any number of characters. Default: current working directoary  
