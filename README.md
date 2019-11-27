@@ -12,6 +12,7 @@ The following codes install PIDFE in home directory. Users can install it anywhe
 
     cd ~
     git clone https://github.com/szhang32/PIDFE.git
+    chmod 755 -R ~/PIDFE/scripts
     echo 'export PATH=$PATH:~/PIDFE/scripts'  >> ~/.bash_profile
     
 ## Software dependancies
