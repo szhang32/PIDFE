@@ -6,9 +6,7 @@ Copyright (c) 2019 Kelleher Lab at the University of Houston
 Current version v1.0
 
 ## How does PIDFE work
-![image]
-
-(https://user-images.githubusercontent.com/19614231/74802727-530fa280-52a0-11ea-88d4-24291b125394.png)
+![image]https://user-images.githubusercontent.com/19614231/74802727-530fa280-52a0-11ea-88d4-24291b125394.png
 
 ## Installation
 The following codes install PIDFE in home directory. Users can install it anywhere they want by changing '~' to their desired directory.
