@@ -37,11 +37,11 @@ PIDFE is designed to run on a high performance computering platform with Linux o
 The output file contains identified *P*-element insertion (1st column), the number of reads supporting each insertion (2nd column), and estimated frequencies (3rd column).
 Here is an example:
 | insertion | supporting_reads | frequency |
-| ----------| ------------------| ---------|
-| chr2L:12822166:+|	27	|0.84375
-|chr2L:20311155:-	|38|	1
-|chr2L:3632292:+	|9	|0.428571428571429
-|chr2L:3632292:-	|13|	0.52
+| ----------| -----------------| --------- |
+| chr2L:12822166:+ | 27 | 0.844 |
+| chr2L:20311155:- | 38 | 1 |
+| chr2L:3632292:+ | 9	| 0.4285 |
+| chr2L:3632292:- | 13 | 0.52 |
 
 ## Contacts
 If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
