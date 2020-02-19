@@ -8,7 +8,7 @@ Current version v1.0
 ## How does PIDFE work
 ![image]
 
-(https://github.com/szhang32/PIDFE/blob/master/image.png)
+(https://github.com/szhang32/PIDFE/blob/master/figures/PIDFE.png?raw=true)
 
 ## Installation
 The following codes install PIDFE in home directory. Users can install it anywhere they want by changing '~' to their desired directory.
