@@ -7,7 +7,7 @@ Current version v1.0
 
 ## How does PIDFE work
 ![](https://github.com/szhang32/PIDFE/blob/master/figures/PIDFE.png)
-PIDFE detects *P*-element insertions by find the split reads (Read-1 in above figure), one part of which is mapped to *P*-element and the remaining part is mapped to the reference genome.
+PIDFE identifies *P*-element insertions by detecting the split reads (read-1 in above figure), one part of which is mapped to *P*-element and the remaining part is mapped to the reference genome.
 
 ## Installation
 The following codes install PIDFE in home directory. Users can install it anywhere they want by changing '~' to their desired directory.
