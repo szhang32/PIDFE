@@ -7,7 +7,6 @@ Current version v1.0
 
 ## How does PIDFE work
 ![Helll]
-
 (https://github.com/szhang32/PIDFE/blob/master/figures/PIDFE.png)
 
 ## Installation
