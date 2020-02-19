@@ -49,5 +49,5 @@ Here is an example:
 
 For each insertion, the inserted chromosome, insertion breakpoint, and orientation of the insertion are reported. For example, "chr2L:12822166:+" indicates that there is a sense *P*-element insertion at chromosome 2L at genomic coordinate 12822166. Sense ('+') represents the *P*-element insertion is in the same orientation as the plus reference genomic strand, whereas antisense ('-') represents the *P*-element insertion is in the opposite orientation as the plus reference genomic strand.
 
-### Contacts
+## Contacts
 If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
