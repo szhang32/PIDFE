@@ -34,6 +34,7 @@ PIDFE is designed to run on a high performance computering platform with Linux o
         [-o output] is the output file name. Default: p_insertions.txt
 
 ## Output
-The output file contains identified P-element insertion, the number of reads supporting each insertion, and estimated frequencies.
+The output file contains identified __P__-element insertion, the number of reads supporting each insertion, and estimated frequencies.
+
 ## Contacts
 If you find any bugs or have difficulties using PIDFE, please feel free to contact Shuo Zhang (shuozhang23@gmail.com).
