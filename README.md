@@ -42,6 +42,7 @@ Here is an example:
 | chr2L:20311155:- | 38 | 1 |
 | chr2L:3632292:+ | 9	| 0.4285 |
 | chr2L:3632292:- | 13 | 0.52 |
+
 chr2L:12822166:+ indicates that there is a sense *P*-element insertion at chromosome 2L at genomic coordinate 12822166. Sense ('+') represents the *P*-element insertion is in the same orientation as the plus reference genomic strand, whereas antisense ('-') represents the *P*-element insertion is in the opposite orientation as the plus reference genomic strand.
 
 ## Contacts
