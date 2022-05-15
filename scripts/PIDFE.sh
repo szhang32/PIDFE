@@ -82,13 +82,18 @@ echo `date`
 echo "align "$read1" and $read2 to $refP"
 echo "cmd: bowtie2 --local -q --no-unal -x $refP -U ${read1} -S p_alignment/read1_p.sam"
 echo "cmd: bowtie2 --local -q --no-unal -x $refP -U ${read2} -S p_alignment/read2_p.sam"
-#bowtie2 --local -q --no-unal -x $refP -U $read1 -S p_alignment/read1_p.sam
-#bowtie2 --local -q --no-unal -x $refP -U $read2 -S p_alignment/read2_p.sam
+bowtie2 --local -q --no-unal -x $refP -U $read1 -S p_alignment/read1_p.sam
+bowtie2 --local -q --no-unal -x $refP -U $read2 -S p_alignment/read2_p.sam
 echo "Aligning to reference genome is done\n"
 
 # convert .sam to .bed
 echo "convert .sam to .bed"
 cd p_alignment
+
+###added by erin to create files where reverse complemented alignments are flagged s 'r' I think the original code relied on a function of samtools that no longer exists.
+samtools view -h read1_p.sam | perl -pe 's/\t0\tP/\t\tP/g;' |  perl -pe 's/\t0\tP/\tr\tP/g;' >formatted_read1_p.sam
+samtools view -h read2_p.sam | perl -pe 's/\t0\tP/\t\tP/g;' |  perl -pe 's/\t0\tP/\tr\tP/g;' >formatted_read2_p.sam
+
 samtools view -bS read1_p.sam > read1_p.bam
 bedtools bamtobed -i read1_p.bam -tag NM > read1_p.bed
 samtools view -bS read2_p.sam > read2_p.bam
@@ -142,28 +147,60 @@ echo "...estimating insertion frequency begins..."
 # build a reference containing constructed pseudo-genomes
 echo "...build pseudogenomes..."
 mkdir p_pseudo
-perl make_P_pseudo_only.pl -f 500 -g $refGenome -p $refP -i $output -o p_pseudo/p_pseudo.fa
+make_P_pseudo_only.pl -f 500 -g $refGenome -p $refP -i $output -o p_pseudo/p_pseudo.fa
 cd p_pseudo
 cat p_pseudo.fa $refGenome > combined.fa
 rm p_pseudo.fa
 mv combined.fa p_pseudo.fa
-bowtie2-build p_pseudo.fa p_pseudo.fa
+bowtie2-build -f p_pseudo.fa p_pseudo.fa
 cd ..
 echo "...pseudo-genomes are built..."
 
-# align paired-end reads to new reference
+# align paired-end reads to pseudogenome reference, index and sort alignments
 echo "...align to pseudo-genomes..."
-bowtie2 -q --no-mixed --no-discordant --no-unal -x p_pseudo/p_pseudo.fa -1 $read1 -2 $read2 -S pseudo.sam
-samtools view -bSf 0x2 -q 20 pseudo.sam > pseudo.bam
-bedtools bamtobed -ed -i pseudo.bam > pseudo.bed
-rm pseudo.bam
-rm -r p_pseudo
+bowtie2 -p 16 --reorder -q --no-mixed --no-discordant --no-unal -x p_pseudo/p_pseudo.fa -1 $read1 -2 $read2 -S pseudo.sam
 echo "...aligning to pseudo-genomes is done..."
 
-# calculate insertion frequency
-perl freqCal_whole_genome_without_binSearch.pl -f 500 -i $output -b pseduo.bed -o temp_freq.txt
-#rm $output
-#mv temp_freq.txt $output
+###get the header from the samfile
+samtools view -h pseudo.sam | grep -P  "^@" >new.pseudo.sam
+### get the reads with edit distance <4
+samtools view -f 0X2 pseudo.sam | grep -P  "NM:i:[0-3]" >>new.pseudo.sam
+####convert to bam
+samtools view -b new.pseudo.sam >new.pseudo.bam
+####sort reads
+samtools sort new.pseudo.bam -o sorted.new.pseudo.bam
+#### index reads
+samtools index sorted.new.pseudo.bam
+
+
+### isolate read pairs that do not span breakpoints, convert to fastq
+awk '{print $1.":inserted\t1007\t3915 "}' $output >insertions.bed
+
+echo "...collecting reference reads..."
+samtools view -@ 8 -U reference.reads.bam -L insertions.bed sorted.new.pseudo.bam >insertion.reads.bam
+### sort by read names
+samtools sort  -@ 8 -n reference.reads.bam -o sorted.reference.reads.bam
+### convert to fastq
+samtools bam2fq sorted.reference.reads.bam >reference_reads.fq
+paired.pl -f reference_reads.fq
+
+
+### align read pairs that do not support the insertion to the reference genome
+echo "...aligning to reference..."
+bowtie2 -p 16 --reorder -q --no-mixed --no-discordant --no-unal -x $refGenome -1 reference_reads_R1.fq -2 reference_reads_R2.fq -S reference.sam
+echo "...alignment to reference complete..."
+echo "...sorting reference reads..."
+samtools view  -@ 8 -h reference.sam | grep -P  "^@" >new.reference.sam
+samtools view -@ 8 -f 0X2 reference.sam | grep -P  "NM:i:[0-3]" >>new.reference.sam
+samtools view  -@ 8 -b new.reference.sam >new.reference.bam
+samtools sort -@ 8 new.reference.bam -o sorted.new.reference.bam
+samtools index sorted.new.reference.bam
+
+echo "...calculating frequencies.."
+newfreq.pl -f 1000 -i $output
+
+echo "...aligning to pseudo-genomes is done..."
+
 
 
 
