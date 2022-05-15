@@ -82,13 +82,18 @@ echo `date`
 echo "align "$read1" and $read2 to $refP"
 echo "cmd: bowtie2 --local -q --no-unal -x $refP -U ${read1} -S p_alignment/read1_p.sam"
 echo "cmd: bowtie2 --local -q --no-unal -x $refP -U ${read2} -S p_alignment/read2_p.sam"
-#bowtie2 --local -q --no-unal -x $refP -U $read1 -S p_alignment/read1_p.sam
-#bowtie2 --local -q --no-unal -x $refP -U $read2 -S p_alignment/read2_p.sam
+bowtie2 --local -q --no-unal -x $refP -U $read1 -S p_alignment/read1_p.sam
+bowtie2 --local -q --no-unal -x $refP -U $read2 -S p_alignment/read2_p.sam
 echo "Aligning to reference genome is done\n"
 
 # convert .sam to .bed
 echo "convert .sam to .bed"
 cd p_alignment
+
+###added by erin to create files where reverse complemented alignments are flagged s 'r' I think the original code relied on a function of samtools that no longer exists.
+samtools view -h read1_p.sam | perl -pe 's/\t0\tP/\t\tP/g;' |  perl -pe 's/\t0\tP/\tr\tP/g;' >formatted_read1_p.sam
+samtools view -h read2_p.sam | perl -pe 's/\t0\tP/\t\tP/g;' |  perl -pe 's/\t0\tP/\tr\tP/g;' >formatted_read2_p.sam
+
 samtools view -bS read1_p.sam > read1_p.bam
 bedtools bamtobed -i read1_p.bam -tag NM > read1_p.bed
 samtools view -bS read2_p.sam > read2_p.bam
