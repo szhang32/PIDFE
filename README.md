@@ -21,7 +21,7 @@ The following codes install PIDFE in home directory. Users can install it anywhe
 ## Software dependancies
 PIDFE is designed to run on a high performance computering platform with Linux operating system. The following softwares or packages are required to run PIDFE.
 - [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
-- [samtools](http://www.htslib.org/doc/samtools-1.2.html)
+- [samtools/1.12](http://www.htslib.org/doc/samtools-1.2.html) 
 - [bedtools](https://bedtools.readthedocs.io/en/latest/)
 - [BioPerl](https://bioperl.org)
 
