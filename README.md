@@ -2,7 +2,7 @@
 __PIDFE__, __*P*__-element **I**nsertion **D**etector and **F**requency **E**stimator, is a pipeline to detect *P*-element insertions and estimate their insertion frequencies from paired-end reads.
 
 Copyright (c) 2019 Kelleher Lab at the University of Houston. If you used PIDFE in your study, please cite:
-Zhang, S. & Kelleher, E.S., 2017. Targeted identification of TE insertions in a Drosophila genome through hemi-specific PCR. Mobile DNA. 8:10.
+Zhang S, Pointer B, Kelleher E. 2020. Rapid evolution of piRNA-mediated silencing of an invading transposable element was driven by abundant de novo mutations. Genome Res. 30: 566-575
 
 Current version v1.0
 
